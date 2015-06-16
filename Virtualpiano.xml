@@ -1,0 +1,1544 @@
+<UI xmlns="http://www.blizzard.com/wow/ui/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.blizzard.com/wow/ui/">
+	<Font name="font" font="Fonts\ARIALN.TTF" virtual="true">
+		<FontHeight>
+			<AbsValue val="18"/>
+		</FontHeight>
+	</Font>
+	<!-- VIRTUAL PIANO KEY TEMPLATES -->
+	
+	<Frame name="VP_LKeyT" movable="true" frameStrata="LOW" virtual="true">
+		<Size><AbsDimension x="38" y="330"/></Size>
+		<Backdrop name="$parentBackdrop" bgFile="Interface\AddOns\Virtualpiano\Images\LKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnLoad>
+				VP_LoadKeys(self)
+			</OnLoad>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_LKeyTP" movable="true" frameStrata="MEDIUM" virtual="true" hidden="true">
+		<Size><AbsDimension x="38" y="333"/></Size>
+		<Backdrop name="$parentBackdrop" bgFile="Interface\AddOns\Virtualpiano\Images\LKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_FKeyT" movable="true" frameStrata="LOW" virtual="true">
+		<Size><AbsDimension x="38" y="330"/></Size>
+		<Backdrop name="$parentBackdrop" bgFile="Interface\AddOns\Virtualpiano\Images\FKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnLoad>
+				VP_LoadKeys(self)
+			</OnLoad>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_FKeyTP" movable="true" frameStrata="MEDIUM" virtual="true" hidden="true">
+		<Size><AbsDimension x="38" y="333"/></Size>
+		<Backdrop name="$parentBackdrop" bgFile="Interface\AddOns\Virtualpiano\Images\FKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_RKeyT" movable="true" frameStrata="LOW" virtual="true">
+		<Size><AbsDimension x="38" y="330"/></Size>
+		<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\RKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnLoad>
+				VP_LoadKeys(self)
+			</OnLoad>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+		
+	<Frame name="VP_RKeyTP" movable="true" frameStrata="MEDIUM" virtual="true" hidden="true">
+		<Size><AbsDimension x="38" y="333"/></Size>
+		<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\RKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	
+	<Frame name="VP_MKeyT" movable="true" frameStrata="LOW" virtual="true">
+		<Size><AbsDimension x="38" y="330"/></Size>
+		<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\MKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnLoad>
+				VP_LoadKeys(self)
+			</OnLoad>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_MKeyTP" frameStrata="MEDIUM" virtual="true" hidden="true">
+		<Size><AbsDimension x="38" y="333"/></Size>
+		<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\MKey"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>	
+	<Frame name="VP_BKeyT" frameStrata="HIGH" virtual="true">
+		<Size><AbsDimension x="28" y="190"/></Size>
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground"/>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnLoad>
+				VP_LoadKeys(self)
+			</OnLoad>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>	
+	<Frame name="VP_BKeyTP" frameStrata="HIGH" virtual="true" toplevel="true" hidden="true">
+		<Size><AbsDimension x="28" y="191"/></Size>
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground">
+			<BorderColor r="0" g="0" b="0" a="1"/>
+			<EdgeSize val="2"/>
+		</Backdrop>
+		<Layer level="OVERLAY"><FontString inherits="font" name="$parentText"></FontString></Layer>	
+		<Scripts>
+			<OnMouseDown>
+				VPiano_DownKey(self, string.sub(self:GetName(),4,strfind(self:GetName(),"Key")-1))
+			</OnMouseDown>
+		</Scripts>	
+	</Frame>
+	<Frame name="VP_PianoHeader" enableMouse="true" movable="true" hidden="true" frameStrata="MEDIUM">
+		<Size><AbsDimension x="256" y="64"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="UIParent">
+			<Offset><AbsDimension x="0" y="250"/></Offset>
+			</Anchor>
+		</Anchors>
+		<Backdrop bgFile="Interface\Addons\Virtualpiano\Images\PianoHeader"/>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing();
+			</OnDragStop>
+		</Scripts>
+	</Frame>	
+	<!--END OF VIRTUAL PIANO KEY TEMPLATES -->
+	<!-- MAIN PIANO WINDOW -->
+	<Frame name="VP_MainPianoWindow" parent="VP_PianoHeader" enableMouse="true" enableKeyboard="false" movable="true" frameStrata="LOW">
+		<Size><AbsDimension x="1450" y="450"/></Size>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="VP_PianoHeader">
+				<Offset><AbsDimension y="4"/></Offset> <!-- 4 = size of border -->
+			</Anchor>	
+		</Anchors>	
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+			<BorderColor r="0" g="0" b="0" a="1"/>
+			<EdgeSize val="4"/>
+		</Backdrop>
+	<Frames>	
+			<!-- CLOSE PIANO BUTTON -->			
+			<Button name="VP_ClosePianoButton" enableMouse="true">
+				<Size>
+					<AbsDimension x="150" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="VP_MainPianoWindow" relativePoint="BOTTOMLEFT">
+						<Offset><AbsDimension x="4" y="4"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalLarge" text="Close"/>
+					</Layer>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="0.5" g="0.6" b="0" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>	
+				<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+					<EdgeSize val="2"/>
+				</Backdrop>				
+				<Scripts>
+					<OnClick>
+						VPiano_TogglePianoFrame()
+					</OnClick>
+				</Scripts>	
+			</Button>
+			<!-- MORE/LESS KEYS BUTTON -->			
+			<Button name="VP_MoreKeysButton" enableMouse="true">
+				<Size>
+					<AbsDimension x="150" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMLEFT" relativeTo="VP_ClosePianoButton" relativePoint="BOTTOMRIGHT"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalLarge" text="More Keys"/>
+					</Layer>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="0.5" g="0.6" b="0" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+					<EdgeSize val="2"/>
+				</Backdrop>				
+				<Scripts>
+					<OnClick>
+						VPiano_ToggleMoreKeys()
+					</OnClick>
+				</Scripts>	
+			</Button>
+			<!-- OPTIONS BUTTON -->
+			<Button name="VP_PianoOptionsButton" enableMouse="true">
+				<Size>
+					<AbsDimension x="150" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOMRIGHT" relativeTo="VP_MainPianoWindow" relativePoint="BOTTOMRIGHT">
+						<Offset><AbsDimension x="-4" y="4"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalLarge" text="Options"/>
+					</Layer>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="0.5" g="0.6" b="0" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+					<EdgeSize val="2"/>
+				</Backdrop>	
+				<Scripts>
+					<OnClick>
+						VPiano_ToggleOptionsFrame()
+					</OnClick>
+				</Scripts>	
+			</Button>
+			
+			<!-- ENABLE/DISABLE KEYBOARD BUTTON -->
+			<Button name="VP_ToggleKeyboardButton" enableMouse="true">
+				<Size>
+					<AbsDimension x="200" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="VP_PianoOptionsButton" relativePoint="LEFT"/>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString name="$parentText" inherits="GameFontNormalLarge" text="Enable Keyboard"/>
+					</Layer>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="0.5" g="0.6" b="0" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>	
+				<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+					<EdgeSize val="2"/>
+				</Backdrop>
+				<Scripts>
+					<OnClick>
+						VPiano_ToggleKeyboard()
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<Frame name="VP_CurrentlyPlaying" hidden="true">
+				<Size>
+					<AbsDimension x="60" y="40"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_MainPianoWindow" relativePoint="TOPRIGHT">
+						<Offset><AbsDimension x="-400" y="-5"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalLarge" name="$parentText" text="Currently Playing: "/>
+					</Layer>
+				</Layers>	
+			</Frame>
+			
+			<Button name="VP_ShuffleButton" hidden="true">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>	
+				<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\PlaybackControls\Shuffle"/>
+				<Layers>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="1" g="1" b="1" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						if (not VP_ShuffleMode) then
+							VP_CreateShuffleList()
+							VP_ShuffleMode = true
+							self:SetBackdropColor(0,1,0,1)
+						else
+							VP_ShuffleMode = false
+							self:SetBackdropColor(1,1,1,1)
+						end
+					</OnClick>
+				</Scripts>	
+			</Button>
+			
+			<Button name="VP_PlayStopButton" hidden="true">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>	
+				<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\PlaybackControls\Play"/>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_MainPianoWindow" relativePoint="TOP">
+						<Offset><AbsDimension x="-24" y="-25"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="1" g="1" b="1" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_TogglePlayStop()
+					</OnClick>
+				</Scripts>	
+			</Button>
+			
+			<Button name="VP_PreviousTrackButton" hidden="true">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>	
+				<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\PlaybackControls\Previous"/>	
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="VP_PlayStopButton" relativePoint="LEFT">
+						<Offset><AbsDimension x="-40"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="1" g="1" b="1" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_PlayTrack(self)
+					</OnClick>
+				</Scripts>	
+			</Button>
+			
+			<Button name="VP_PauseButton" hidden="true">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>	
+				<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\PlaybackControls\Pause"/>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="VP_PlayStopButton" relativePoint="RIGHT">
+						<Offset><AbsDimension x="40"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="1" g="1" b="1" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_PauseTrack()
+					</OnClick>
+				</Scripts>	
+			</Button>
+			
+			<Button name="VP_NextTrackButton" hidden="true">
+				<Size>
+					<AbsDimension x="32" y="32"/>
+				</Size>	
+				<Backdrop bgFile="Interface\AddOns\Virtualpiano\Images\PlaybackControls\Next"/>
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="VP_PauseButton" relativePoint="RIGHT">
+						<Offset><AbsDimension x="40"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="HIGHLIGHT">
+						<Texture>
+							<Color r="1" g="1" b="1" a="0.2"/>
+						</Texture>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_PlayTrack(self)
+					</OnClick>
+				</Scripts>	
+			</Button>
+			<Slider name="VP_Slider" minValue="1" maxValue="100" defaultValue="1" valueStep="1" inherits="OptionsSliderTemplate" hidden="true">
+				<Size>
+					<AbsDimension x="400" y="30"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_MainPianoWindow" relativePoint="BOTTOM">
+						<Offset><AbsDimension y="35" x="-50"/></Offset>
+					</Anchor>
+				</Anchors>
+				<Scripts>
+					<OnValueChanged>
+						VP_Iterator = round(value)
+					</OnValueChanged>
+				</Scripts>
+			</Slider>
+			<Slider name="VP_SpeedSlider" minValue="0.2" maxValue="2.5" defaultValue="1" valueStep="0.1" inherits="OptionsSliderTemplate" hidden="true">
+				<Size>
+					<AbsDimension x="150" y="30"/>
+				</Size>	
+				<Anchors>
+					<Anchor point="RIGHT" relativeTo="VP_Slider" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="160"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentValue">
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="BOTTOM"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Slider>
+		</Frames>		
+	</Frame>
+	<Frame name="VP_KeysFrame" parent="VP_MainPianoWindow">
+		<Size><AbsDimension x="1450" y="450"/></Size>
+		<Anchors>
+			<Anchor point="CENTER" relativePoint="CENTER" relativeTo="VP_MainPianoWindow"/>
+		</Anchors>
+		<Frames>
+			<Frame name="VP_a1Key" inherits="VP_LKeyT" hidden="true">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="VP_KeysFrame">
+				<Offset><AbsDimension x="40" y="-50"/></Offset></Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="VP_as1Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a1Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b1Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a1Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c2Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b1Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_cs2Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d2Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds2Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e2Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f2Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs2Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f2Key"/></Anchors>
+			</Frame>			
+			<Frame name="VP_g2Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs2Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a2Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as2Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a2Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b2Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a2Key"/></Anchors>
+			</Frame>
+			<!--Start from 1-->
+			<Frame name="VP_c3Key" inherits="VP_LKeyT">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativePoint="TOPLEFT" relativeTo="VP_KeysFrame">
+					<Offset><AbsDimension x="44" y="-50"/></Offset></Anchor>
+				</Anchors>
+			</Frame>
+			<Frame name="VP_cs3Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d3Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds3Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d3Key"/></Anchors>	
+			</Frame>
+			<Frame name="VP_e3Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f3Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs3Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_g3Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs3Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a3Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as3Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b3Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c4Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b3Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_cs4Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c4Key"/></Anchors>		
+			</Frame>
+			<Frame name="VP_d4Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds4Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e4Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f4Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs4Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_g4Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs4Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a4Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as4Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b4Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c5Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b4Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_cs5Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d5Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds5Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e5Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f5Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs5Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f5Key"/></Anchors>
+			</Frame>		
+			<Frame name="VP_g5Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f5Key"/></Anchors>
+			</Frame>	
+			<Frame name="VP_gs5Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g5Key"/></Anchors>	
+			</Frame>
+			<Frame name="VP_a5Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g5Key"/></Anchors>
+			</Frame>		
+			<Frame name="VP_as5Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b5Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c6Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b5Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_cs6Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d6Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds6Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e6Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f6Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs6Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_g6Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs6Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a6Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as6Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b6Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c7Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b6Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_cs7Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d7Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds7Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e7Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f7Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs7Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_g7Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs7Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a7Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as7Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b7Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a7Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c8Key" inherits="VP_FKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b7Key"/></Anchors>
+			</Frame>
+			<!--more keys-->
+			<Frame name="VP_cs8Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_c8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_d8Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_c8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_ds8Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_d8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_e8Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_d8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_f8Key" inherits="VP_LKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_e8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_fs8Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_f8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_g8Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_f8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_gs8Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_g8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_a8Key" inherits="VP_MKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_g8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_as8Key" inherits="VP_BKeyT">
+				<Anchors><Anchor point="TOP" relativePoint="TOPRIGHT" relativeTo="VP_a8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_b8Key" inherits="VP_RKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_a8Key"/></Anchors>
+			</Frame>
+			<Frame name="VP_c9Key" inherits="VP_FKeyT">
+				<Anchors><Anchor point="TOPLEFT" relativePoint="TOPRIGHT" relativeTo="VP_b8Key"/></Anchors>
+			</Frame>
+		</Frames>
+	</Frame>
+	<!-- OPTIONS FRAME -->
+	<Frame name="VP_PianoOptionsFrame" enableMouse="true" movable="true" frameStrata="HIGH" hidden="true" toplevel="true">	
+		<Size><AbsDimension x="450" y="240"/></Size>
+		<Anchors>
+			<Anchor point="TOP" relativePoint="BOTTOM" relativeTo="WorldFrame">
+				<Offset>
+					<AbsDimension x="0" y="150"></AbsDimension>
+				</Offset>
+			</Anchor>			
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self:RegisterForDrag("LeftButton");
+				self:SetScale(0.8)
+			</OnLoad>
+			<OnDragStart>
+				self:StartMoving();
+			</OnDragStart>
+			<OnDragStop>
+				self:StopMovingOrSizing();
+			</OnDragStop>
+		</Scripts>
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+			<BorderColor r="0" g="0" b="0" a="1"/>
+			<EdgeSize val="2"/>
+		</Backdrop>
+		<Frames>
+			<Slider name="VP_PianoScaleSlider" minValue="0.2" maxValue="1" defaultValue="0.6" valueStep="0.01" inherits="OptionsSliderTemplate">
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_PianoOptionsFrame" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-70"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentValue">
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="BOTTOM"/>
+							</Anchors>
+						</FontString>
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Scale" justifyH="CENTER">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>	
+					</Layer>
+				</Layers>
+			</Slider>
+			
+			<Slider name="VP_DimSlider" minValue="0.1" maxValue="1" defaultValue="0.6" valueStep="0.01" inherits="OptionsSliderTemplate">
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_PianoScaleSlider" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentValue">
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="BOTTOM"/>
+							</Anchors>
+						</FontString>
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Dim Transparency" justifyH="CENTER">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>	
+					</Layer>
+				</Layers>
+			</Slider>
+			
+			<Slider name="VP_PianoTransparencySlider" minValue="0.1" maxValue="1" defaultValue="0.6" valueStep="0.000005" inherits="OptionsSliderTemplate">
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_DimSlider" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-50"/>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentValue">
+							<Anchors>
+								<Anchor point="TOP" relativeTo="$parent" relativePoint="BOTTOM"/>
+							</Anchors>
+						</FontString>
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Piano Transparency" justifyH="CENTER">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>	
+					</Layer>
+				</Layers>
+			</Slider>
+			
+			<CheckButton name="VP_PlayerBroadcast" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-20"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Broadcast to player">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="VP_PlayerBroadcast" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentEText" text="">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT">
+									<Offset><AbsDimension x="150" y="0"/></Offset>
+								</Anchor>		
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						if(self:GetChecked()) then
+							VP_PlayerNameEntry:Show()
+						else
+							VP_PlayerNameEntry:Hide()
+						end
+					</OnClick>
+				</Scripts>				
+			</CheckButton>	
+			
+			<CheckButton name="VP_PlayerReceive" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-20" y="-20"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Receive from player">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_ToggleCurrPlaying()
+					</OnClick>
+				</Scripts>		
+			</CheckButton>
+			
+			<CheckButton name="VP_PartyBroadcast" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-80"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Broadcast to party">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>		
+			</CheckButton>
+			
+			<CheckButton name="VP_PartyReceive" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-20" y="-80"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Receive from party">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_ToggleCurrPlaying()
+					</OnClick>
+				</Scripts>		
+			</CheckButton>
+			
+			<CheckButton name="VP_GuildBroadcast" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-50"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Broadcast to guild">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+			</CheckButton>
+			
+			<CheckButton name="VP_GuildReceive" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension x="-20" y="-50"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Receive from guild">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_ToggleCurrPlaying()
+					</OnClick>
+				</Scripts>	
+			</CheckButton>
+		
+			<CheckButton name="VP_RaidBroadcast" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_PianoOptionsFrame" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="20" y="-110"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Broadcast to raid">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+			</CheckButton>
+			
+			<CheckButton name="VP_RaidReceive" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_PartyReceive" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension  y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Receive from raid">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_ToggleCurrPlaying()
+					</OnClick>
+				</Scripts>		
+			</CheckButton>
+			
+			<CheckButton name="VP_DimToggle" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_RaidBroadcast" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Dim Background">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_ToggleDim()
+					</OnClick>
+				</Scripts>		
+			</CheckButton>
+			
+			<CheckButton name="VP_BindToggle" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_DimToggle" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Open Keybind window">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						if (VP_KeybindWrapper:IsVisible()) then
+							VP_KeybindWrapper:Hide()
+						else
+							VP_KeybindWrapper:Show()
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			
+			<CheckButton name="VP_RandomColors" inherits="OptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_BindToggle" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="0" y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Random Key Colors">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						if (not self:GetChecked()) then
+							VP_SetKeyBackdrop()
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			
+			<CheckButton name="VP_HideKeybinds" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_RaidReceive" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Hide Keybinds">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_ToggleKeybinds()
+					</OnClick>
+				</Scripts>		
+			</CheckButton>	
+			
+			<CheckButton name="VP_OpenScriptWindow" inherits="OptionsCheckButtonTemplate" checked="false">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_HideKeybinds" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Open Script Window">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_openScriptPanel()
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			
+			<CheckButton name="VP_MuteSounds" inherits="OptionsCheckButtonTemplate">
+				<Anchors>
+					<Anchor point="TOPRIGHT" relativeTo="VP_OpenScriptWindow" relativePoint="TOPRIGHT">
+						<Offset>
+							<AbsDimension y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Addon Sounds Only">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					
+					<OnLoad>
+						if (GetCVar("Sound_EnableAmbience") == "0" and GetCVar("Sound_EnableSFX") == "0" and GetCVar("Sound_EnableMusic") == "0") then
+							VP_MuteSounds:SetChecked(true)
+						else
+							VP_MuteSounds:SetChecked(false)
+						end
+					</OnLoad>
+					<OnClick>
+						if (GetCVar("Sound_EnableAmbience") == "1" or GetCVar("Sound_EnableSFX") == "1" or GetCVar("Sound_EnableMusic") == "1") then
+							SetCVar("Sound_EnableAmbience", 0);
+							SetCVar ("Sound_EnableSFX", 0);
+							SetCVar ("Sound_EnableMusic",0);
+							VP_MuteSounds:SetChecked(true)
+						else
+							SetCVar("Sound_EnableAmbience", 1); 
+							SetCVar ("Sound_EnableSFX", 1); 
+							SetCVar ("Sound_EnableMusic", 1); 
+							VP_MuteSounds:SetChecked(false)
+						end
+					</OnClick>
+				</Scripts>
+			</CheckButton>
+			
+			<EditBox name="VP_PlayerNameEntry" inherits="InputBoxTemplate" font="GameFontNormal" letters="12" autoFocus="false" ignoreArrows="false" hidden="true">
+				<Size><AbsDimension x="150" y="27"/></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_PianoOptionsFrame" relativePoint="TOP">
+						<Offset>
+							<AbsDimension x="0" y="-35"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Player Name">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnEnterPressed>
+						VP_WhisperTarget = VP_PlayerNameEntry:GetText()
+						self:ClearFocus()
+					</OnEnterPressed>
+					<OnEditFocusGained>
+						self:SetText("")
+					</OnEditFocusGained>
+					<OnEditFocusLost>
+						VP_WhisperTarget = VP_PlayerNameEntry:GetText()
+						self:SetText(VP_WhisperTarget)
+					</OnEditFocusLost>
+				</Scripts>
+			</EditBox>
+		</Frames>	
+	</Frame>
+
+	<Frame name="VP_KeybindWrapper" movable="true" frameStrata="HIGH" hidden="true" toplevel="true">	
+		<Size><AbsDimension x="410" y="130"/></Size>
+		<Anchors>
+			<Anchor point="BOTTOMRIGHT" relativePoint="TOPRIGHT" relativeTo="VP_MainPianoWindow"/>
+		</Anchors>
+		<Scripts>
+			<OnLoad>
+				self:SetScale(0.7)
+			</OnLoad>
+		</Scripts>
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground" edgeFile="Interface\ChatFrame\ChatFrameBackground" tile="false">
+			<BorderColor r="0" g="0" b="0" a="1"/>
+			<EdgeSize val="2"/>
+		</Backdrop>
+		<Frames>
+			<Frame name="VP_KeybindTitle">
+				<Size>
+					<AbsDimension x="220" y="50"/>
+				</Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_KeybindWrapper" relativePoint="TOP">
+						<Offset>
+							<AbsDimension y="-10"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalLarge" name="$parentText" text="Virtual Piano Binding"/>
+						<FontString inherits="GameFontNormalSmall" name="$parentText2" text="Bind a key by typing a key, and clicking the piano keys with your mouse">
+							<FontHeight>
+								<AbsValue val="11"/>
+							</FontHeight>
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="VP_KeybindWrapper" relativePoint="TOP">
+									<Offset>
+										<AbsDimension y="-25"></AbsDimension>
+									</Offset>
+								</Anchor>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+			</Frame>
+
+			<EditBox name="VP_KeybindEntry" inherits="InputBoxTemplate" font="GameFontNormal" autoFocus="false" ignoreArrows="false">
+				<Size><AbsDimension x="150" y="30"/></Size>
+				<Anchors>
+					<Anchor point="CENTER" relativeTo="VP_KeybindWrapper" relativePoint="TOP">
+						<Offset>
+							<AbsDimension y="-60"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Piano Key(s)">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>			
+				<Scripts>
+					<OnEnterPressed>
+						self:ClearFocus()
+					</OnEnterPressed>
+					<OnEditFocusGained>					
+						VP_MSG("Click a piano key with your mouse to add notes here")
+						if (not VP_PianoHeader:IsVisible()) then
+							VPiano_TogglePianoFrame()
+						end
+					</OnEditFocusGained>
+				</Scripts>
+			</EditBox>
+			
+			<Button name="VP_KeybindBtn" inherits="UIPanelButtonTemplate" enableKeyboard="false">
+				<Size>
+					<AbsDimension x="30" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_KeybindEntry" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="-60"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Keyboard ">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+						<FontString inherits="GameFontNormalLarge" name="$parentText2" text=" = ">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_KeybindEntry:ClearFocus()
+						VP_KeybindEntry:SetText("")
+						if (not self:IsKeyboardEnabled()) then
+							self:EnableKeyboard(true)
+							self:SetScript("OnKeyDown", VP_KeybindDownKey)
+						end
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="VP_SetKeybindBtn" inherits="UIPanelButtonTemplate" enableKeyboard="false">
+				<Size>
+					<AbsDimension x="55" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="VP_KeybindEntry" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5"></AbsDimension>
+						</Offset>
+					</Anchor>	
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Set Bind">
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="$parent" relativePoint="CENTER"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_BindKeyboardKey(VP_KeybindBtn:GetText(),VP_KeybindEntry:GetText())
+						VP_KeybindEntry:ClearFocus()
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="VP_UnbindBtn" inherits="UIPanelButtonTemplate" enableKeyboard="false">
+				<Size>
+					<AbsDimension x="55" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="VP_SetKeybindBtn" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Unbind">
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="$parent" relativePoint="CENTER"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_KeybindEntry:ClearFocus()
+						VP_unbindKeyboardKey(VP_KeybindBtn:GetText())
+						VP_KeybindEntry:SetText("")
+					</OnClick>
+				</Scripts>
+			</Button>
+
+			<EditBox name="VP_NotebindEntry" inherits="InputBoxTemplate" font="GameFontNormal" autoFocus="false" ignoreArrows="false">
+				<Size><AbsDimension x="150" y="30"/></Size>
+				<Anchors>
+					<Anchor point="TOP" relativeTo="VP_KeybindEntry" relativePoint="CENTER">
+						<Offset>
+							<AbsDimension y="-30"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormalSmall" name="$parentText" text="Keyboard Key(s)">
+							<Anchors>
+								<Anchor point="BOTTOM" relativeTo="$parent" relativePoint="TOP"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>			
+				<Scripts>
+					<OnEnterPressed>
+						self:ClearFocus()
+					</OnEnterPressed>
+					<OnEditFocusGained>
+						VP_MSG("Separate binds by commas. eg. sE,aW,c2 (shift E, alt W, ctrl 2)")
+						if (not VP_PianoHeader:IsVisible()) then
+							VPiano_TogglePianoFrame()
+						end
+					</OnEditFocusGained>
+					<OnEditFocusLost>
+						self:SetScript("OnChar", nil)			
+					</OnEditFocusLost>
+				</Scripts>
+			</EditBox>
+			
+			<Button name="VP_NotebindBtn" inherits="UIPanelButtonTemplate">
+				<Size>
+					<AbsDimension x="30" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="TOPLEFT" relativeTo="VP_NotebindEntry" relativePoint="TOPLEFT">
+						<Offset>
+							<AbsDimension x="-60"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Note ">
+							<Anchors>
+								<Anchor point="RIGHT" relativeTo="$parent" relativePoint="LEFT"/>
+							</Anchors>
+						</FontString>
+						<FontString inherits="GameFontNormalLarge" name="$parentText2" text=" = ">
+							<Anchors>
+								<Anchor point="LEFT" relativeTo="$parent" relativePoint="RIGHT"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_NotebindMode = true
+						if (not VP_PianoHeader:IsVisible()) then
+							VPiano_TogglePianoFrame()
+						end
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="VP_SetNotebindBtn" inherits="UIPanelButtonTemplate">
+				<Size>
+					<AbsDimension x="55" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="VP_NotebindEntry" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Set Bind">
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="$parent" relativePoint="CENTER"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>
+				<Scripts>
+					<OnClick>
+						VP_NotebindEntry:ClearFocus()
+						VP_BindPianoKey(VP_NotebindBtn:GetText(),VP_NotebindEntry:GetText())
+					</OnClick>
+				</Scripts>
+			</Button>
+			
+			<Button name="VP_UnbindNoteBtn" inherits="UIPanelButtonTemplate" enableKeyboard="false">
+				<Size>
+					<AbsDimension x="55" y="25"/>
+				</Size>
+				<Anchors>
+					<Anchor point="LEFT" relativeTo="VP_SetNotebindBtn" relativePoint="RIGHT">
+						<Offset>
+							<AbsDimension x="5"></AbsDimension>
+						</Offset>
+					</Anchor>
+				</Anchors>
+				<Layers>
+					<Layer level="OVERLAY">
+						<FontString inherits="GameFontNormal" name="$parentText" text="Unbind">
+							<Anchors>
+								<Anchor point="CENTER" relativeTo="$parent" relativePoint="CENTER"/>
+							</Anchors>
+						</FontString>
+					</Layer>
+				</Layers>	
+				<Scripts>
+					<OnClick>
+						VP_NotebindEntry:ClearFocus()
+						VP_unbindPianoKey(VP_NotebindBtn:GetText())
+						VP_NotebindEntry:SetText("")
+					</OnClick>
+				</Scripts>
+			</Button>
+		</Frames>
+	</Frame>
+	<Frame name="VP_EventHandlerFrame" parent="UIParent" frameStrata="LOW">
+		<Scripts>
+			<OnLoad>
+				self:RegisterEvent("ADDON_LOADED")
+				self:RegisterEvent("CHAT_MSG_ADDON")
+				self:RegisterEvent("PLAYER_REGEN_DISABLED")
+			</OnLoad>
+			<OnEvent>	
+				VP_EventHandler(self, event, ...)
+			</OnEvent>
+		</Scripts>
+	</Frame>
+	<Frame name="VP_DimFrame" frameStrata="LOW" hidden="true">
+		<Backdrop bgFile="Interface\ChatFrame\ChatFrameBackground"/>
+		<Anchors><Anchor point="CENTER"></Anchor></Anchors>
+		<Scripts>
+			<OnLoad>
+				local VP_Resolution = tostring(({GetScreenResolutions()})[GetCurrentResolution()])
+				local xpos = strfind(VP_Resolution, "x")
+				self:SetHeight(strsub(VP_Resolution, xpos+1, strlen(VP_Resolution)))
+				self:SetWidth(strsub(VP_Resolution, 1, xpos-1))
+			</OnLoad>
+		</Scripts>
+	</Frame>
+</UI>

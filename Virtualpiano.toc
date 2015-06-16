@@ -1,0 +1,13 @@
+## Interface: 60000
+## Title: Virtual Piano
+## Notes: 88 key piano with midi support
+## SavedVariablesPerCharacter: VP_Settings, VP_Keybinds
+## Version: 1.5
+## Author: Trucidare
+
+defaults.lua
+Virtualpiano.lua
+binding.lua
+Virtualpiano.xml
+play.lua
+demo.lua
